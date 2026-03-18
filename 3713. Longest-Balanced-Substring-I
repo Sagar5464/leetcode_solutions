@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int longestBalanced(string s) {
+        int n=s.size();
+        int count=0;
+        for(int i=0;i<n;i++){
+            vector<int>arr(26,0);
+            for(int j=i;j<n;j++){
+                arr[s[j]-'a']++;
+                int a=INT_MAX,b=0;
+                for(int k:arr){
+                    if(k>0){
+                        a=min(a,k);
+                        b=max(b,k);
+                    }
+                }
+                if(a==b){
+                    count=max(count,j-i+1);
+                }
+            }
+        }
+        return count;
+    }
+};
