@@ -1,0 +1,36 @@
+class Solution {
+public:
+    string fractionToDecimal(int nu, int de) {
+        if (nu == 0) return "0";
+
+        string s;
+        if ((nu < 0) ^ (de < 0)) s += "-";
+
+        long long n = llabs((long long)nu);
+        long long d = llabs((long long)de);
+
+        s += to_string(n / d);
+        long long x = n % d;
+        if (x == 0) return s;
+
+        s += ".";
+        string str;
+        vector<long long> arr;
+
+        while (x) {
+            auto i = find(arr.begin(), arr.end(), x);
+            if (i != arr.end()) {
+                int idx = distance(arr.begin(), i);
+                str.insert(idx, "(");
+                str += ")";
+                break;
+            }
+            arr.push_back(x);
+            x *= 10;
+            str += to_string(x / d);
+            x %= d;
+        }
+
+        return s + str;
+    }
+};
