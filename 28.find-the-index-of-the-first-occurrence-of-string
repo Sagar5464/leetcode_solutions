@@ -1,0 +1,8 @@
+int strStr(char* a, char* b) {
+    char *c=strstr(a,b);
+    if(c==NULL){
+        return -1;
+    }
+    int f=strlen(a)-strlen(c);
+    return f;
+}
