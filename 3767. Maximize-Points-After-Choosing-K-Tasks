@@ -1,0 +1,25 @@
+class Solution {
+public:
+    long long maxPoints(vector<int>& t1, vector<int>& t2, int k) {
+        vector<pair<int,int>>arr;
+        int n=t1.size();
+        for(int i=0;i<n;i++){
+            int s=t1[i]-t2[i];
+            arr.push_back({s,i});
+        }
+          sort(arr.begin(), arr.end(),
+             [](const pair<int,int> &a, const pair<int,int> &b) {
+                 return a.first > b.first;
+             });
+        long long ans=0;
+        for(int i=0;i<k;i++){
+            int j=arr[i].second;
+            ans+=t1[j];
+        }
+        for(int i=k;i<n;i++){
+            int j=arr[i].second;
+            ans+=max(t1[j],t2[j]);
+        }
+        return ans;
+    }
+};
