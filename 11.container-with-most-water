@@ -1,0 +1,12 @@
+int maxArea(int* arr, int N){
+    int max = 0, i = 0, j = N - 1;
+    while(j > i){
+        int s = arr[i];
+        if(s > arr[j]) s = arr[j];
+        s *= (j - i);
+        if(max < s) max = s;
+        if(arr[i] < arr[j]) i++ ;
+        else j--;
+    }
+    return max;
+}
