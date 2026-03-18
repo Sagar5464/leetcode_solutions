@@ -1,0 +1,18 @@
+class Solution {
+public:
+    long long maxProduct(vector<int>& nums) {
+        int n = nums.size();
+        for(int& i : nums) {
+            i = abs(i);
+        }
+        int mx1 = 0, mx2 = 0;
+        for(int& i : nums) {
+            if(i >= mx1) {
+                mx2 = mx1, mx1 = i;
+            } else if(i > mx2) {
+                mx2 = i;
+            }
+        }
+        return 1LL * 100000 * mx1 * mx2;
+    }
+};
