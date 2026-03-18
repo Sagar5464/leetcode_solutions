@@ -1,0 +1,10 @@
+int maxProfit(int* prices, int n) {
+    int min= INT_MAX;
+    int c=0;
+    for(int i=1;i<n;i++){
+        min=(min<prices[i-1]?min:prices[i-1]);
+        int s = prices[i]-min;
+        c=(c>s) ? c:s;
+    }
+    return c;
+}
