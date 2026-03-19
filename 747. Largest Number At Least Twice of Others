@@ -1,0 +1,16 @@
+int dominantIndex(int* nums, int n) {
+    int m=nums[0],c=0,a=0;
+    for(int i=0;i<n;i++){
+        if(m<nums[i]){
+            m=nums[i];
+            a=i;
+        }
+    }
+    for(int i=0;i<n;i++){
+        if(nums[i]*2<=m){
+            c++;
+        }
+    }
+    if(c==n-1) return a;
+    else return -1;
+}
