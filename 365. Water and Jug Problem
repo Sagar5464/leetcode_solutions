@@ -1,0 +1,14 @@
+int gcd(int a , int b){
+    while(b!=0){
+        int temp=b;
+        b=a%b;
+        a=temp;
+    }
+    return a;
+}
+bool canMeasureWater(int x, int y, int t) {
+    if (x + y < t) {
+        return false;
+    }
+    return (t % gcd(x, y) == 0) ? true : false;
+}
