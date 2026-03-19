@@ -1,0 +1,11 @@
+bool judgeSquareSum(int c) {
+    long long n=sqrt(c),a=0,x=0;
+    while(a<=n){
+        if(a*a + n*n ==c) x++;
+        if(a*a +n*n >c) n--; 
+        else a++;
+
+    }
+    if(x!=0) return true;
+    else return false;
+}
