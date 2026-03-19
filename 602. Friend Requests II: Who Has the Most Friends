@@ -1,0 +1,11 @@
+/* Write your PL/SQL query statement below */
+with cte as(
+    select requester_id as id  from RequestAccepted
+    union all
+    select accepter_id as id from RequestAccepted
+),
+cte1 as(
+select id , count(id) as num from cte
+group by id
+)
+select *from cte1 where num=(select max(num) from cte1);
