@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int countDigitOne(int n) {
+        int c=0;
+        for(long i = 1; i<=n;i*=10){
+            long l=n%i;
+            long x = (n/i)%10;
+            long h = n/(i*10);
+        
+        if(x==0){
+            c+=(int)(h*i);
+        }
+        else if (x == 1) {
+                c += (int)(h * i + l + 1);
+            }
+            else {
+                c += (int)((h + 1) * i);
+            }
+        }
+        return c; 
+    }
+};
