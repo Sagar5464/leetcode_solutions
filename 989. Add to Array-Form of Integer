@@ -1,0 +1,26 @@
+int* addToArrayForm(int* num, int numSize, int k, int* returnSize) {
+    int* result = (int*)malloc((numSize + 20) * sizeof(int));
+    int resultSize = 0;
+    int i = numSize - 1;
+
+    while (i >= 0 || k > 0) {
+        int digit = (i >= 0) ? num[i] : 0;
+        int sum = digit + k % 10;
+        k /= 10;
+        result[resultSize++] = sum % 10;
+        k += sum / 10;
+        if (i >= 0) {
+            i--;
+        }
+    }
+
+    int* finalResult = (int*)malloc(resultSize * sizeof(int));
+    *returnSize = resultSize;
+
+    for (int j = 0; j < resultSize; j++) {
+        finalResult[j] = result[resultSize - 1 - j];
+    }
+
+    free(result);
+    return finalResult;
+}
