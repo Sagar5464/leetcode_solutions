@@ -1,0 +1,14 @@
+class Solution {
+public:
+    bool hasGroupsSizeX(vector<int>& deck) {
+        map<int,int>arr;
+        long long s=0;
+        for(auto i:deck){
+            arr[i]++;
+        }
+        for(auto i: arr){
+            s=gcd(s,i.second);
+        }
+        return s>1;
+    }
+};
