@@ -1,0 +1,9 @@
+bool predictTheWinner(int* nums, int n) {
+    int s=0,c=0;
+    for(int i=0;i<n;i++){
+        s+=nums[i];
+        if(i%2==0)c+=nums[i];
+    }
+    if(c>=s-c)return 1;
+    else return 0;
+}
