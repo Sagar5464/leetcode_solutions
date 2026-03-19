@@ -1,0 +1,12 @@
+/* Write your PL/SQL query statement below */
+SELECT 
+    P.firstName AS FirstName,  
+    P.lastName AS LastName,   
+    A.city AS City,            
+    A.state AS State        
+FROM 
+    Person P                   
+LEFT JOIN 
+    Address A                 
+ON 
+    P.personid = A.personid;
