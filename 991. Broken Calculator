@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int brokenCalc(int s, int t) {
+        if (t <= s)
+            return s - t;
+    int ans = 0; 
+        while (t > s) {
+            if (t % 2 != 0) { 
+                ans++;  
+                t++;  
+            } else {      
+                ans++;  
+                t /= 2; 
+            }
+            if (s == t) {
+                return ans;
+            }
+        }
+        return ans + (s - t);
+    }
+};
