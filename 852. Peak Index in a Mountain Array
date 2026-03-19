@@ -1,0 +1,10 @@
+int peakIndexInMountainArray(int* arr, int n) {
+    int max=arr[0],a=0;
+    for(int i=1;i<n;i++){
+        if(max<arr[i]){
+            max=arr[i];
+            a=i;
+        }
+    }
+    return a;
+}
