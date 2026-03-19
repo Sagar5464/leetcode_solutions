@@ -1,0 +1,19 @@
+int numFriendRequests(int* ages, int a) {
+    int c[121]={0};
+    for(int i=0;i<a;i++){
+        c[ages[i]]++;
+    }
+    int ans=0;
+    for(int age1=0;age1<=120;age1++){
+        int c1=c[age1];
+        for(int age2=0;age2<=120;age2++){
+            int c2=c[age2];
+            if(age1*0.5+7>=age2)continue;
+            if(age1<age2)continue;
+            if(age1<100 && 100<age2)continue;
+            ans+=c1*c2;
+            if(age1==age2)ans-=c1;
+            }
+        }
+        return ans;
+}
