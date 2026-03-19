@@ -1,0 +1,21 @@
+bool lemonadeChange(int* bills, int n) {
+   int f = 0, t = 0;
+    for (int i = 0; i < n; i++) {
+        if (bills[i] == 5) 
+            f++;
+        else if (bills[i] == 10) {
+            if (f == 0) return false;
+            f--;
+            t++;
+        } else if (bills[i] == 20) {
+           if(f==0||t==0&&f<3)
+                return false;
+                if(t>=1){
+                t--;
+                f--;}
+                else
+                f-=3;
+        }
+    }
+    return true;
+}
