@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int numPairsDivisibleBy60(vector<int>& time) {
+        int arr[60] = {};
+        int c = 0;
+        for(auto x:time){
+            int a = x % 60;
+            int b = (60 - a)%60;
+            c += arr[b];
+            arr[a]++;
+        }
+        return c;
+    }
+};
