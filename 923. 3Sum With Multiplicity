@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int threeSumMulti(vector<int>& arr, int target) {
+        const int MOD = 1e9 + 7;
+        long long ans = 0;
+        unordered_map<int, long long> sum;
+        unordered_map<int, long long> sums;
+
+        for (int x : arr) {
+            if (sum.count(target - x))
+                ans = (ans + sum[target - x]) % MOD;
+
+            for (auto &p : sums) {
+                int a = p.first + x;
+                sum[a] += p.second;
+            }
+            sums[x]++;
+        }
+        return (int)ans;
+    }
+};
