@@ -1,0 +1,19 @@
+bool checkRecord(char* s) {
+    int aCount = 0;
+    int lCount = 0;
+    int len = strlen(s);
+
+    for (int i = 0; i < len; i++) {
+        if (s[i] == 'A') {
+            aCount++;
+            if (aCount > 1) return false;
+            lCount = 0;
+        } else if (s[i] == 'L') {
+            lCount++;
+            if (lCount > 2) return false;
+        } else {
+            lCount = 0;
+        }
+    }
+    return true;
+}
