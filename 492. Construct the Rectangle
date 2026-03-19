@@ -1,0 +1,18 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* constructRectangle(int a, int* r) {
+    int* arr=(int *)malloc(2*sizeof(int));
+    int l,w;
+    for(int i=(int)sqrt(a);i>=1;i--){
+        if(a%i==0){
+            w=i;
+            l=a/i;
+            break;
+        }
+    }
+    arr[0]=l;
+    arr[1]=w;
+    *r=2;
+    return arr;
+}
