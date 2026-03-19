@@ -1,0 +1,15 @@
+int rob(int* nums, int numsSize) {
+    if (numsSize == 0) return 0;
+    if (numsSize == 1) return nums[0];
+
+    int a1 = 0;
+    int a2 = nums[0];
+
+    for (int i = 1; i < numsSize; i++) {
+        int temp = a2;
+        a2 = (a1 + nums[i] > a2) ? (a1 + nums[i]) : a2;
+        a1 = temp;
+    }
+
+    return a2;
+}
