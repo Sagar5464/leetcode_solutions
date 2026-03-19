@@ -1,0 +1,8 @@
+int titleToNumber(char* c) {
+    int x=strlen(c);
+    int s=0;
+    for(int i=0;i<x;i++){
+        s+=(c[i]-64)*pow(26,x-i-1);
+    }
+    return s;
+}
