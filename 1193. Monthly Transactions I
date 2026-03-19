@@ -1,0 +1,30 @@
+WITH cte AS (
+    SELECT 
+        TO_CHAR(trans_date, 'YYYY-MM') AS month,country,
+        COUNT(*) AS trans_count,
+        SUM(amount) AS trans_total_amount
+    FROM Transactions 
+    GROUP BY TO_CHAR(trans_date, 'YYYY-MM'), country
+),
+cte1 AS (
+    SELECT 
+        TO_CHAR(trans_date, 'YYYY-MM') AS month,country,
+        COUNT(*) AS approved_count,
+        SUM(amount) AS approved_total_amount
+    FROM Transactions
+    WHERE state = 'approved'
+    GROUP BY TO_CHAR(trans_date, 'YYYY-MM'), country
+)
+SELECT 
+    c1.month,c1.country,c1.trans_count,
+    CASE WHEN c2.approved_count IS NULL THEN 0 ELSE c2.approved_count END AS approved_count,
+    c1.trans_total_amount,
+    CASE WHEN c2.approved_total_amount IS NULL THEN 0 ELSE c2.approved_total_amount END AS approved_total_amount
+FROM cte c1
+LEFT JOIN cte1 c2
+    ON (
+        (c1.country = c2.country)
+        OR (c1.country IS NULL AND c2.country IS NULL)
+    )
+    AND c1.month = c2.month
+ORDER BY c1.month, c1.country;
