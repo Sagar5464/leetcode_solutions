@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        map<char, char> mpp;
+        map<char, char> arr; 
+        for (int i = 0; i < s.size(); i++) {
+            char c1 = s[i];
+            char c2 = t[i];
+            if (mpp.count(c1)) {
+                if (mpp[c1] != c2) return false;
+            } else {
+                mpp[c1] = c2;
+            }
+            if (arr.count(c2)) {
+                if (arr[c2] != c1) return false;
+            } else {
+                arr[c2] = c1;
+            }
+        }
+        return true;
+    }
+};
