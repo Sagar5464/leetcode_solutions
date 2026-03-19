@@ -1,0 +1,9 @@
+int hammingWeight(int n) {
+    int x,c=0;
+    while(n!=0){
+        x=n%2;
+        if(x==1) c++;
+        n/=2;
+    }
+    return c;
+}
