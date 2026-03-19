@@ -1,0 +1,23 @@
+int div_num(int i) {
+    int temp = i;
+    while (temp > 0) {
+        int digit = temp % 10;
+        if (digit == 0 || i % digit != 0) {
+            return false;
+        }
+        temp /= 10;
+    }
+    return true;
+}
+
+int* selfDividingNumbers(int left, int right, int* returnSize) {
+    int *arr = malloc((right - left + 1) * sizeof(int));
+    int c = 0;
+    for (int i = left; i <= right; i++) {
+        if (div_num(i)) {
+            arr[c++] = i;
+        }
+    }
+    *returnSize = c;
+    return realloc(arr, c * sizeof(int));
+}
