@@ -1,0 +1,19 @@
+class Solution {
+public:
+    static bool cmp_pairs(const pair<int,int>& a, const pair<int,int>& b) {
+        return a.second > b.second; 
+    }
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map<int, int> mpp; 
+        for (int n : nums) {
+            mpp[n]++;
+        }
+        vector<pair<int, int>> arr(mpp.begin(), mpp.end());
+        sort(arr.begin(), arr.end(), cmp_pairs);
+        vector<int> ans;
+        for (int i = 0; i < k; i++) {
+            ans.push_back(arr[i].first);
+        }
+        return ans;
+    }
+};
