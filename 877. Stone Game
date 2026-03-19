@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool stoneGame(vector<int>& piles) {
+        // int i=0,j=piles.size()-1;
+        // int a=0,b=0;
+        // while(i<=j){
+        //     int x=max(piles[i],piles[j]);
+        //     if(piles[i]>=piles[j]) i++;
+        //     else j--;
+        //     if(1) a+=x;
+        //     else b+=x;
+        // }
+        // return a>b;
+        return 1;
+    }
+};
