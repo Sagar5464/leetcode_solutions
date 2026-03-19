@@ -1,0 +1,15 @@
+int numJewelsInStones(char* jewels, char* stones) {
+    int i=0,j,c=0;
+    while(jewels[i]!=NULL)
+    {
+        j=0;
+        while(stones[j]!=NULL)
+        {
+            if(stones[j]==jewels[i])
+            c=c+1;
+            j++;
+        }
+        i++;
+    }
+    return c;
+}
