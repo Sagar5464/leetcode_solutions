@@ -1,0 +1,31 @@
+bool isUgly(int n) {
+    if (n <= 0) return false;
+    while (n > 1) {
+        if (n % 2 == 0) {
+            n /= 2;
+        } else if (n % 3 == 0) {
+            n /= 3;
+        } else if (n % 5 == 0) {
+            n /= 5;
+        } else {
+            return false; 
+        }
+    }
+    return (n == 1); 
+}
+
+int nthUglyNumber(int n) {
+    if (n <= 0) return 0; 
+    if (n == 1) return 1;
+
+    int count = 0; 
+    int num = 0;  
+
+    while (count < n) { 
+        num++; 
+        if (isUgly(num)) {
+            count++;
+        }
+    }
+    return num; 
+}
