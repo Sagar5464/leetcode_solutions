@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int numSquares(int n) {
+        int sqt = sqrt(n);
+        if(sqt*sqt == n) return 1;
+
+        for(int i = 1; pow(i,2) <= n; i++){
+            int j = sqrt(n - (i*i));
+            if(i*i + j*j == n) return 2;
+        }
+
+        while(n%4 == 0) n /= 4;
+        if(n%8 == 7) return 4;
+
+    return 3;
+    }
+};
