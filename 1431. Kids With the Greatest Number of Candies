@@ -1,0 +1,20 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+bool* kidsWithCandies(int* can, int n, int e, int* r) {
+    bool *arr=(bool *)malloc(n*sizeof(int));
+    int max=can[0];
+    for(int i=0;i<n;i++){
+        if(can[i]>max) max=can[i];
+    }
+    for(int i=0;i<n;i++){
+        if(can[i]+e>=max){
+            arr[i]=1;
+        }
+        else{
+            arr[i]=0;
+        }
+    }
+    *r=n;
+    return arr;
+}
