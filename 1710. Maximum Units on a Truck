@@ -1,0 +1,24 @@
+int maximumUnits(int** bo, int n, int* boxTypesColSize, int t) {
+    for(int i=0;i<n-1;i++){
+        for(int j=0;j<n-i-1;j++){
+             if (bo[j][1] < bo[j + 1][1]) {
+                int* temp = bo[j];
+                bo[j] = bo[j + 1];
+                bo[j + 1] = temp;
+            }
+        }
+    }
+   int s = 0;
+    for (int i = 0; i < n; i++) {
+        int numBoxes = bo[i][0];
+        int unitsPerBox = bo[i][1];
+        if (t >= numBoxes) {
+            s += numBoxes * unitsPerBox;
+            t -= numBoxes;
+        } else {
+            s += t * unitsPerBox;
+            break;
+        }
+    }
+    return s;
+}
