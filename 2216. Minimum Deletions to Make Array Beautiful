@@ -1,0 +1,12 @@
+int minDeletion(int* nums, int n) {
+    int j = 0;
+    int sz = n;
+    int i = 0; 
+    while (i - j + 1 < sz) {
+        if (nums[i - j] == nums[i - j + 1]) {
+            j++;
+    }
+    i += 2; 
+}
+    return j + (sz - j) % 2;
+}
