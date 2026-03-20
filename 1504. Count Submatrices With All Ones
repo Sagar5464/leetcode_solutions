@@ -1,0 +1,36 @@
+int numSubmat(int** mat, int matSize, int* matColSize) {
+    int m = matSize;
+    int n = matColSize[0];
+    int **heights = (int**)malloc(m * sizeof(int*));
+    for (int i = 0; i < m; i++) {
+        heights[i] = (int*)calloc(n, sizeof(int));
+    }
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (mat[i][j] == 0) {
+                heights[i][j] = 0;
+            } else {
+                heights[i][j] = (i == 0 ? 1 : heights[i-1][j] + 1);
+            }
+        }
+    }
+
+    long long res = 0;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (heights[i][j] > 0) {
+                int min_h = heights[i][j];
+                for (int k = j; k >= 0 && heights[i][k] > 0; k--) {
+                    if (heights[i][k] < min_h) {
+                        min_h = heights[i][k];
+                    }
+                    res += min_h;
+                }
+            }
+        }
+    }
+    for (int i = 0; i < m; i++) free(heights[i]);
+    free(heights);
+
+    return (int)res;
+}
