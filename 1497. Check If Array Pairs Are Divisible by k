@@ -1,0 +1,19 @@
+class Solution {
+public:
+    bool canArrange(vector<int>& arr, int k) {
+        vector<int> mpp(k, 0);
+        for (int num : arr) {
+            int rem = ((num % k) + k) % k; 
+            mpp[rem]++;
+        }
+        if (mpp[0] % 2 != 0) {
+            return 0;
+        }
+        for (int i = 1; i < k; ++i) {
+            if (mpp[i] != mpp[k - i]) {
+                return 0; 
+            }
+        }
+        return 1;
+    }
+};
