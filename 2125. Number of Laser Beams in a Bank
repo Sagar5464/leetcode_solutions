@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int numberOfBeams(vector<string>& bank) {
+        int ans = 0;
+        vector<int> arr(bank.size(), 0);
+        for (int i = 0; i < bank.size(); i++) {
+            arr[i] = count(bank[i].begin(), bank[i].end(), '1');
+        }
+        int prev = 0;
+        for (int i : arr) {
+            if (i != 0) {
+            ans += prev * i;
+            prev = i;
+            }
+        }
+        return ans;
+    }
+};
