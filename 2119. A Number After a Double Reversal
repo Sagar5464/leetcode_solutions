@@ -1,0 +1,10 @@
+bool isSameAfterReversals(int num) {
+    int c=0;
+    if(num==0)return true;
+
+        if(num%10==0){
+            c++;
+        }
+    if(c>0)return false;
+    else return true;
+}
