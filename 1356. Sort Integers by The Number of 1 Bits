@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int no_of_1bit(int n) {
+        int res = 0;
+        while (n != 0) {
+            res += (n & 1);
+            n >>= 1;
+        }
+        return res;
+    }
+    vector<int> sortByBits(vector<int>& arr) {
+        int n=arr.size();
+        vector<int>num(n);
+        for(int i=0;i<n;i++){
+            num[i]=no_of_1bit(arr[i])*10001+arr[i];
+        }
+        sort(num.begin(), num.end());
+        for (int i = 0; i < n; i++) {
+            num[i] %= 10001;
+        }
+        return num;
+    }
+};
