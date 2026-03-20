@@ -1,0 +1,4 @@
+/* Write your PL/SQL query statement below */
+select to_char(event_day,'YYYY-MM-DD') day,emp_id,sum(OUT_TIME-in_time) as total_time
+from employees
+group by event_day,emp_id;
