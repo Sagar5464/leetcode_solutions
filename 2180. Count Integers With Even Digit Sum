@@ -1,0 +1,13 @@
+int countEven(int n) {
+    int x,s=0,c=0;
+    for(int i=1;i<=n;i++){
+        int t=i,s=0;
+        while(t>0){
+                x=t%10;
+                s+=x;
+                t/=10;
+            }
+            if(s%2==0)c++;
+        }
+    return c;
+}           
