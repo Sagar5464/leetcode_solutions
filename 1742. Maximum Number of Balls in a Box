@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int countBalls(int l, int h) {
+        int c=0;
+        vector<int> b(46, 0); 
+        for (int i = l; i <= h; i++) {
+            int x = i;
+            int y = 0;
+            while (x) {
+                y += x % 10; 
+                x /= 10;        
+            }
+            b[y]++; 
+            c = max(c, b[y]);         
+        }
+        return c;
+    }
+};
