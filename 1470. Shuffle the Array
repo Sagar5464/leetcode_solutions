@@ -1,0 +1,20 @@
+
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* shuffle(int* nums, int s, int n, int* r){ 
+    int* arr = (int *)malloc(2 * n * sizeof(int));
+    if (arr == NULL) {
+        *r = 0; 
+        return NULL;
+    }
+    int j = 0;
+    for (int i = 0; i < n; i++) { 
+        arr[j] = nums[i];        
+        arr[j + 1] = nums[i + n]; 
+        j += 2;                 
+    }
+    *r = 2 * n;
+    return arr;
+}
