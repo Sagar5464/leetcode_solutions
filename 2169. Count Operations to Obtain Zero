@@ -1,0 +1,16 @@
+int min(int a,int b){
+    if(a>b) return b;
+    else return a;
+}
+int countOperations(int n1, int n2) {
+    if(n1==0 && n2==0) return 0;
+    if(n1==n2) return 1;
+    int c=0;
+    while(n1!=0 && n2!=0){
+        int x=min(n1,n2);
+        if(n1==x) n2-=x;
+        else n1-=x;
+        c++;
+    }
+    return c;
+}
