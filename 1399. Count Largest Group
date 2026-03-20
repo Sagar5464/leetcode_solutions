@@ -1,0 +1,31 @@
+int countLargestGroup(int n) {
+    int arr[1000] = {0};
+    int max = 0;
+
+    for (int i = 1; i <= n; i++) {
+        int s = 0;
+        int x = i;
+
+        while (x > 0) {
+            s += x % 10;
+            x /= 10;
+        }
+
+        arr[s]++;
+    }
+
+    for (int i = 0; i < 1000; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+
+    int c = 0;
+    for (int i = 0; i < 1000; i++) {
+        if (arr[i] == max) {
+            c++;
+        }
+    }
+
+    return c;
+}
