@@ -1,0 +1,15 @@
+int maxProductDifference(int* nums, int n){
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n-i-1;j++){
+            if(nums[j]>nums[j+1]){
+                int t=nums[j];
+                nums[j]=nums[j+1];
+                nums[j+1]=t;
+            }
+        }
+    }
+    int a=nums[0],b=nums[1],c=nums[n-1],d=nums[n-2];
+    int x=(d*c)-(a*b);
+    return x;
+
+}
