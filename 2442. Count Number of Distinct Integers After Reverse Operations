@@ -1,0 +1,45 @@
+#include <stdlib.h>
+
+int reverse(int n) {
+    int val = 0;
+    while (n) {
+        val = val * 10 + (n % 10);
+        n /= 10;
+    }
+    return val;
+}
+
+int compareIntegers(const void *a, const void *b) {
+    return (*(int*)a - *(int*)b);
+}
+
+int countDistinctIntegers(int* nums, int n) {
+    int* arr = (int*)malloc(2 * n * sizeof(int));
+
+    if (arr == NULL) {
+        return 0;
+    }
+
+    int idx = 0;
+
+    for (int i = 0; i < n; i++) {
+        arr[idx++] = nums[i];
+        arr[idx++] = reverse(nums[i]);
+    }
+
+    qsort(arr, 2 * n, sizeof(int), compareIntegers);
+
+    int c = 0;
+    if (2 * n > 0) {
+        c = 1;
+        for (int i = 1; i < 2 * n; i++) {
+            if (arr[i] != arr[i-1]) {
+                c++;
+            }
+        }
+    }
+
+    free(arr);
+
+    return c;
+}
