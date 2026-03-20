@@ -1,0 +1,19 @@
+int findGCD(int* nums, int numsSize) {
+    int max = nums[0], min = nums[0], gcd;
+    for (int i = 1; i < numsSize; i++) {
+        if (nums[i] > max) {
+            max = nums[i];
+        }
+        if (nums[i] < min) {
+            min = nums[i];
+        }
+    }
+    int a = max, b = min;
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    gcd = a;
+    return gcd;
+}
