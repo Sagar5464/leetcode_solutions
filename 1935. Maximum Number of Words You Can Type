@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int canBeTypedWords(string t, string b) {
+        int c = 0;
+        istringstream s(t);
+        string word;
+        while (s >> word) {
+            bool a = true;
+            for (char c : b) {
+                if (word.find(c) != string::npos) {
+                    a = false;
+                    break;
+                }
+            }
+            if (a) c++;
+        }
+        return c;
+    }
+};
