@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int tupleSameProduct(vector<int>& nums) {
+        int cnt = 0;
+        int n = nums.size();
+        if (n < 4) return 0;
+        unordered_map<int, int> arr;
+        
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int p = nums[i] * nums[j];
+                if (arr.find(p) != arr.end()) {
+                    cnt += arr[p];
+                }
+                arr[p]++;
+            }
+        }
+        
+        return cnt*8;
+    }
+};
