@@ -1,0 +1,50 @@
+void merge(int *arr,int left, int mid, int right){
+    int i=left;
+    int j=mid+1;
+    int ar[right-left+1];
+    int k=0;
+    while(i<=mid && j<=right){
+        if(arr[i]<arr[j]){
+            ar[k++]=arr[i++];
+        }
+        else{
+            ar[k++]=arr[j++];
+        }
+    }
+   
+    while(i<=mid){
+        ar[k++]=arr[i++];
+    }
+   
+    while(j<=right){
+        ar[k++]=arr[j++];
+    }
+   
+    k=0;
+    for(int i=left;i<=right;i++){
+        arr[i]=ar[k];
+        k++;
+    }
+}
+void mergesort(int *arr,int n,int left,int right){
+    if(left>=right) return;
+    if(left<right){
+        int mid=(left+right)/2; 
+        mergesort(arr,n,left,mid);
+        mergesort(arr,n,mid+1,right);
+        merge(arr,left,mid,right);
+         
+    }
+}
+int matchPlayersAndTrainers(int* g, int gSize, int* s, int sSize) {
+    mergesort(g,gSize,0,gSize-1);
+    mergesort(s,sSize,0,sSize-1);
+    int i=0,j=0;
+    while(j<gSize && i<sSize){
+        if(s[i]>=g[j]){
+            j++;
+        }
+        i++;
+    }
+    return j;
+}
