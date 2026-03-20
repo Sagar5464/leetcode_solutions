@@ -1,0 +1,5 @@
+int countOdds(int l, int h){
+    int n = h-l+1;
+    if (l%2 && h%2) return n/2+1;
+    return n/2;
+}
