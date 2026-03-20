@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int minTimeToType(string word) {
+        int ans=0;
+        char s='a';
+        for(int i=0;i<word.size();i++)
+        {
+            ans +=min(abs(word[i]-s),26 - abs(word[i]-s));
+            ans ++;
+            s=word[i];
+        }
+        return ans;
+    }
+};
