@@ -1,0 +1,29 @@
+class Solution {
+public:
+     bool bal(int n){
+        unordered_map<int,int> arr;
+        bool s = true;
+        
+        while(n > 0){
+            arr[n % 10]++;
+            n = n / 10;
+        }
+        
+        for (const auto& i : arr) {
+            if (i.first != i.second) {
+                s = false;
+                break;
+            }
+        }
+    return s;
+}
+    int nextBeautifulNumber(int n) {
+        bool c = false;
+        if(n >= 666666) return 1224444;
+        while(!c){
+            n++;
+            c = bal(n);
+        }
+        return n; 
+    }
+};
