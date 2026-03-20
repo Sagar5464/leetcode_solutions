@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int minSteps(string s, string t) {
+        map<char,int>mpp;
+        int c=0;
+        for(auto i:s)mpp[i]++;
+        for(auto i:t){
+            if(mpp[i]>0){
+                c++;
+                mpp[i]--;
+            }
+        }
+        return s.size()-c;
+
+    }
+};
