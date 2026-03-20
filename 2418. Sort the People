@@ -1,0 +1,15 @@
+class Solution {
+public:
+    vector<string> sortPeople(vector<string>& n, vector<int>& h) {
+        vector<pair<int,string>>s;
+        for(int i=0;i<h.size();i++){
+            s.push_back({h[i],n[i]});
+        }
+        sort(s.begin(),s.end(),greater<pair<int,string>>());
+        vector<string>arr;
+        for(auto &i:s){
+            arr.push_back(i.second);
+        }
+    return arr;
+    }
+};
