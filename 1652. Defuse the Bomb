@@ -1,0 +1,24 @@
+#include <stdlib.h>
+
+int* decrypt(int* code, int n, int k, int* r) {
+    int* arr = (int *)malloc(n * sizeof(int));
+
+    for (int i = 0; i < n; i++) {
+        arr[i] = 0; 
+
+        if (k == 0) {
+            arr[i] = 0;
+        } else if (k > 0) {
+            for (int j = 1; j <= k; j++) {
+                arr[i] += code[(i + j) % n];
+            }
+        } else { 
+            for (int j = 1; j <= -k; j++) {
+                arr[i] += code[(i - j + n) % n]; 
+            }
+        }
+    }
+
+    *r = n;
+    return arr;
+}
