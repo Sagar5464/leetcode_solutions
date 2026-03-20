@@ -1,0 +1,13 @@
+bool checkIfPangram(char* sentence) {
+     bool freq[26];
+
+    for (int i = 0; sentence[i] != '\0'; i++) {
+        freq[sentence[i] - 'a'] = true;
+    }
+
+    for (int i = 0; i < 26; i++)
+        if (!freq[i])
+            return false;
+
+    return true;
+}
