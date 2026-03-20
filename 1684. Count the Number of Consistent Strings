@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int countConsistentStrings(string a, vector<string>& words) {
+        map<char, int> mpp;
+        for(char ch:a){
+            mpp[ch]++;
+        }
+        int c = 0;
+        for(int i = 0; i<words.size(); i++){
+            string s = words[i];
+            bool t = true;
+            for(char ch:s){
+                if(mpp.find(ch) == mpp.end()){
+                    t = false;
+                }
+            }
+            if(t) c++;
+        }
+        return c;
+    }
+};
