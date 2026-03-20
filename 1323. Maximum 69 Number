@@ -1,0 +1,33 @@
+int maximum69Number (int num) {
+   int arr[4];
+    int size = 0;
+    int temp = num; 
+    int number = 0;
+
+    if (temp == 0) {
+        size = 1;
+    } else {
+        while (temp != 0) {
+            temp /= 10;
+            size++;
+        }
+    }
+
+    temp = num; 
+    for (int i = size - 1; i >= 0; i--) {
+        arr[i] = temp % 10;
+        temp /= 10;
+    }
+
+    for(int i=0;i<size;i++){
+        if(arr[i]==6){
+            arr[i]=9;
+            break;
+        }
+    }
+
+    for (int i = 0; i < size; i++) {
+        number += arr[i] * pow(10, size - 1 - i);
+    }
+    return number;
+}
