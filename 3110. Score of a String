@@ -1,0 +1,7 @@
+int scoreOfString(char* s) {
+    int c=0;
+    for(int i=1;s[i] != '\0';i++){
+    c+=abs((int)s[i] - (int)s[i -1]);   
+    }
+    return c;
+}
