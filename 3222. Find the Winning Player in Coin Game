@@ -1,0 +1,15 @@
+char* winningPlayer(int x, int y) {
+    int a;
+        if(x>y/4){
+                a = y/4;
+        }
+        else{
+                a = x;
+        }
+        if(a%2 == 0){
+                    return("Bob");
+            }
+            else{
+                    return("Alice");
+            }
+}
