@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int maxBottlesDrunk(int a, int b) {
+        int c = a; 
+        while (a >= b) { 
+            c++;              
+            a -= b; 
+            a++;      
+            b++;       
+        }
+        return c;
+    }
+};
