@@ -1,0 +1,17 @@
+int countPartitions(int* nums, int n) {
+    int c=0;
+    for(int i=0;i<n-1;i++)
+    {
+        int l=0,r=0;
+        for(int j=i+1;j<n;j++)
+        {
+            l+=nums[j];
+        }
+        for(int k=0;k<=i;k++)
+        {
+            r+=nums[k];
+        }
+        if((r-l)%2==0)c++;
+    }
+    return c;
+}
