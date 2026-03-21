@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int findSmallestInteger(vector<int>& nums, int v) {
+        vector<int>arr(v,0);
+        for(auto i:nums){
+            int a=((i%v)+v)%v;
+            arr[a]++;
+        }
+        int c=0;
+        while(arr[c%v]>0){
+            arr[c%v]--;
+            c++;
+        }
+        return c;
+    }
+};
