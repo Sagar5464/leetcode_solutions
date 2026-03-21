@@ -1,0 +1,29 @@
+class Solution {
+public:
+    bool isFascinating(int n) {
+        string a=to_string(2*n);
+        string b=to_string(3*n);
+        string c=to_string(n);
+        string d=c+a+b;
+        // cout<<d<<endl;
+        if (d.length() != 9) {
+            return false;
+        }
+        for(int i=0;i<d.size();i++){
+            if(d[i]==0){
+                return 0;
+                break;
+            }
+        }
+        map<char,int>mpp;
+        for (char c : d) {
+            mpp[c]++;
+        }
+        for (char c = '1'; c <= '9'; ++c) {
+            if (mpp[c] != 1) {
+                return false;
+            }
+        }
+        return 1;
+    }
+};
