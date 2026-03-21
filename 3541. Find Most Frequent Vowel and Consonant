@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int maxFreqSum(string s) {
+        map<char,int>arr;
+        for(auto i:s){
+            arr[i]++;
+        }
+        int a=0,b=0;
+        for(auto i:arr){
+            if(i.first=='a' || i.first=='e' || i.first=='i' || i.first=='u' || i.first=='o'){
+                a=max(a,i.second);
+            }
+            else {
+                b=max(b,i.second);
+            }
+        }
+        return a+b;
+    }
+};
