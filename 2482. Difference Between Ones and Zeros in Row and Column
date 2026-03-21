@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<vector<int>> onesMinusZeros(vector<vector<int>>& g) {
+        int m = g.size(), n = g[0].size();
+        vector<int> row(m, 0), col(n, 0);
+
+
+        for (int i = 0; i < m; i++) {
+            int c = 0;
+            for (int j = 0; j < n; j++) if (g[i][j] == 1) c++;
+            row[i] = 2 * c - n;
+        }
+        
+        for (int j = 0; j < n; j++) {
+            int c = 0;
+            for (int i = 0; i < m; i++) if (g[i][j] == 1) c++;
+            col[j] = 2 * c - m;
+        }
+        vector<vector<int>> arr(m, vector<int>(n, 0));
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                arr[i][j] = row[i] + col[j];
+            }
+        }
+        return arr;
+    }
+};
