@@ -1,0 +1,4 @@
+int accountBalanceAfterPurchase(int n) {
+   int a=((n+5)/10)*10;
+   return 100-a;
+}
