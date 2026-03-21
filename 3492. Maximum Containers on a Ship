@@ -1,0 +1,4 @@
+int maxContainers(int n, int w, int m) {
+    if(n*n>(m/w)) return m/w;
+    else return n*n;
+}
