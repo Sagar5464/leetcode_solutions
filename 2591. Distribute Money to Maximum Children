@@ -1,0 +1,27 @@
+int min(int a, int b) {
+    return (a < b) ? a : b;
+}
+
+int distMoney(int money, int children) {
+    if (money < children) {
+        return -1;
+    }
+
+    money -= children;
+
+    int count = money / 7;
+    count = min(count, children);
+
+    money -= count * 7;
+    children -= count;
+
+    if (children == 0 && money > 0) {
+        return count - 1;
+    }
+
+    if (children == 1 && money == 3) {
+        return count - 1;
+    }
+
+    return count;
+}
