@@ -1,0 +1,7 @@
+class Solution {
+public:
+    int distanceTraveled(int m, int a) {
+        int c = min((m - 1) / 4, a);
+        return (m + c) * 10;
+    }
+};
