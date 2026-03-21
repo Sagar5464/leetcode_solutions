@@ -1,0 +1,10 @@
+class Solution {
+public:
+    int minimumPushes(string s) {
+        int n=s.size();
+        int a=n/8;
+        int b=n%8;
+        int c=a*(a+1)/2;
+        return c*8+(a+1)*b;
+    }
+};
