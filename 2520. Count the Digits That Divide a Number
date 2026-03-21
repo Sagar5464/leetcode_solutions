@@ -1,0 +1,11 @@
+int countDigits(int num) {
+    int t=num,a,c=0;
+    while(num>0){
+        a=num % 10;
+        if(t%a==0){
+            c++;
+        }
+        num=num/10;
+    }
+    return c;
+}
