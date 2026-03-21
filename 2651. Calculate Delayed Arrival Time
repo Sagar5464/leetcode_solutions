@@ -1,0 +1,4 @@
+int findDelayedArrivalTime(int a, int d) {
+    int x=a+d;
+    return x%24;
+}
