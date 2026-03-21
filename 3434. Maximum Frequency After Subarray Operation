@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int maxFrequency(vector<int>& nums, int k) {
+        int arr[51] = {}, c = 0, s = 0;
+        for (int i : nums) {
+        arr[i] = max(arr[i], s) + 1;
+        c += i == k;
+        s += i == k;
+        c = max(c, arr[i]);
+    }
+    return c;
+    }
+};
