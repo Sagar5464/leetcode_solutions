@@ -1,0 +1,43 @@
+void merge(int *arr,int left, int mid, int right){
+    int i=left;
+    int j=mid+1;
+    int ar[right-left+1];
+    int k=0;
+    while(i<=mid && j<=right){
+        if(arr[i]<arr[j]){
+            ar[k++]=arr[i++];
+        }
+        else{
+            ar[k++]=arr[j++];
+        }
+    }
+   
+    while(i<=mid){
+        ar[k++]=arr[i++];
+    }
+   
+    while(j<=right){
+        ar[k++]=arr[j++];
+    }
+   
+    k=0;
+    for(int i=left;i<=right;i++){
+        arr[i]=ar[k];
+        k++;
+    }
+}
+void mergesort(int *arr,int n,int left,int right){
+    if(left>=right) return;
+    if(left<right){
+        int mid=(left+right)/2; 
+        mergesort(arr,n,left,mid);
+        mergesort(arr,n,mid+1,right);
+        merge(arr,left,mid,right);
+         
+    }
+}
+int addedInteger(int* nums1, int a, int* nums2, int b) {
+    mergesort(nums1,a,0,a-1);
+    mergesort(nums2,b,0,b-1);
+    return nums2[0]-nums1[0];
+}
