@@ -1,0 +1,9 @@
+char* categorizeBox(int l, int w, int h, int m) {
+    int b=0,he=0;
+    if((long int)l * w * h >=1e9 || l >=1e4 || w >=1e4 || h >= 1e4) b=1;
+    if(m >= 100) he=1;
+    if(b && he) return "Both";
+    else if(he) return "Heavy";
+    else if(b) return "Bulky";
+    else return "Neither";
+}
