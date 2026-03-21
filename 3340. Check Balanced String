@@ -1,0 +1,14 @@
+bool isBalanced(char* num) {
+    int s=0,c=0;
+    for(int i=0;num[i];i++)
+    {
+        if(i%2==0)
+        s+=num[i]-'0';
+        else
+        c+=num[i]-'0';
+    }
+    if(s==c)
+    return true;
+    else
+    return false;
+}
