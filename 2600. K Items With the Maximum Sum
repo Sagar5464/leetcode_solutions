@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int kItemsWithMaximumSum(int n1, int no, int nn, int k) {
+        if(k<=n1){
+            return k;
+        }
+        else{
+            if(k<=n1+no)return n1;
+            else return n1-(k-(n1+no));
+        }
+    }
+};
