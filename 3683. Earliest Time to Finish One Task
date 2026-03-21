@@ -1,0 +1,11 @@
+class Solution {
+public:
+    int earliestTime(vector<vector<int>>& tasks) {
+        int c=INT_MAX;
+        for(auto i:tasks){
+            int x=i[0]+i[1];
+            c=min(c,x);
+        }
+        return c;
+    }
+};
