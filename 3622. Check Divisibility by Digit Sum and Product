@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int sum(int num){
+        int ans=0;
+        while(num>0){
+            ans+=num%10;
+            num/=10;
+        }
+        return ans;
+    }
+    int product(int num){
+        int a=1;
+        while(num>0){
+            a*=(num %10);
+            num/=10;
+        }
+        return a;
+    }
+    bool checkDivisibility(int n) {
+        int c=sum(n)+product(n);
+        if(n%c==0)return 1;
+        else return 0;
+    }
+};
