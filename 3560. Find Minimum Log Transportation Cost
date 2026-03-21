@@ -1,0 +1,15 @@
+class Solution {
+public:
+    long long minCuttingCost(int n, int m, int k) {
+        long long c = 0;
+        if (m <= k && n <= k) return 0;
+
+        if (m > k && n <= k) {
+            c += (long long)(m - k) * k;
+        }
+        if (n > k && m <= k) {
+            c += (long long)(n - k) * k;
+        }
+        return c;
+    }
+};
