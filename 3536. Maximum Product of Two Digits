@@ -1,0 +1,52 @@
+void merge(int *arr,int left, int mid, int right){
+    int i=left;
+    int j=mid+1;
+    int ar[right-left+1];
+    int k=0;
+    while(i<=mid && j<=right){
+        if(arr[i]<arr[j]){
+            ar[k++]=arr[i++];
+        }
+        else{
+            ar[k++]=arr[j++];
+        }
+    }
+   
+    while(i<=mid){
+        ar[k++]=arr[i++];
+    }
+   
+    while(j<=right){
+        ar[k++]=arr[j++];
+    }
+   
+    k=0;
+    for(int i=left;i<=right;i++){
+        arr[i]=ar[k];
+        k++;
+    }
+}
+void mergesort(int *arr,int n,int left,int right){
+    if(left>=right) return;
+    if(left<right){
+        int mid=(left+right)/2; 
+        mergesort(arr,n,left,mid);
+        mergesort(arr,n,mid+1,right);
+        merge(arr,left,mid,right);
+         
+    }
+}
+int maxProduct(int n) {
+    int a=log10(n)+1,x;
+    int *arr=(int *)malloc(a*sizeof(int));
+    int i=a-1;
+    while(n!=0){
+        x=n%10;
+        arr[i]=x;
+        n/=10;
+        i--;
+    }
+    mergesort(arr,a,0,a-1);
+    int s=arr[a-1]*arr[a-2];
+    return s;
+}
