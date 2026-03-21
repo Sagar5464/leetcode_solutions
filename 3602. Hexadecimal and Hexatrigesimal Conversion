@@ -1,0 +1,22 @@
+class Solution {
+public:
+        string h(int n , int base){
+        string a = "";
+        while(n){
+            if(n%base < 10)
+            a += ('0' + n%base);
+            else
+            a += ('A' + (n%base) - 10);
+            n /= base;
+        }
+        reverse(a.begin(),a.end());
+        return a;
+    }
+
+    string concatHex36(int n) {
+        string ans = "";
+        ans += h(n*n , 16);
+        ans += h(n*n*n,36);
+        return ans;
+    }
+};
